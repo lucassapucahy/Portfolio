@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap');
 body{
-  background-image: url(../src/assets/Global/971.png);
+  background: url(../src/assets/Global/971.png) 100% 40%;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
+  margin: 0px 10px;
 }
-

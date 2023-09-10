@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="card mb-3 p-0" style="border: 3px solid blueviolet;max-width: 18rem;">
+    <div class="card-header text-center" style="color: blueviolet;"><h4><b>{{Projeto.Nome}}</b></h4></div>
+    <div class="card-body" style="color: blueviolet;">
+      <p class="card-text fs-5">{{Projeto.Descricao}}</p>
+      <hr>
+      <p>Tecnologias:</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="font-size:0.8rem;" *ngFor="let projeto of Projeto.Tecnologias" >{{projeto}}</li>
+      </ul>
+
+      <br>
+      <a href={{Projeto.Url}} class="btn text-white" style="background-color:blueviolet">Link do projeto</a>
+    </div>
+  </div>
+</div>

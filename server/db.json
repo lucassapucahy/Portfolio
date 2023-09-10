@@ -1,0 +1,18 @@
+{
+  "Projetos": [
+    {
+      "Id": 1,
+      "Nome": "ESYS.VENDAS",
+      "Url": "https://github.com/lucassapucahy/Esys.Vendas",
+      "Descricao": "PROJETO QUE SIMULA UM MICROSERVICO DE E-COMMERCE QUE CUIDA DA PARTE DE VENDAS",
+      "Tecnologias": [".Net Core","MySQL","RabbitMQ","Docker","Kubernetes","PowerShellScript"]
+    },
+    {
+      "Id": 2,
+      "Nome": "Portfolio",
+      "Url": "https://github.com/lucassapucahy/Portfolio",
+      "Descricao": "Codigo deste portfolio",
+      "Tecnologias": ["Angular 14","TypeScript","Bootstrap","JsonServer"]
+    }
+  ]
+}
