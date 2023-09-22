@@ -1,4 +1,4 @@
-interface Contato{
+export interface Contato{
   Nome: string
   Email: string
   Empresa?: string

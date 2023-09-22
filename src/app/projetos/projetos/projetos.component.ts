@@ -16,8 +16,7 @@ export class ProjetosComponent implements OnInit {
   ngOnInit(): void {
     this.service.Listar().subscribe({
       next: (projetos) => this.Projetos = projetos,
-      error: (e) => console.error(e),
-      complete: () => console.info('complete')
+      error: (e) => console.error(e)
     })
   }
 

@@ -13,6 +13,20 @@
       "Url": "https://github.com/lucassapucahy/Portfolio",
       "Descricao": "Codigo deste portfolio",
       "Tecnologias": ["Angular 14","TypeScript","Bootstrap","JsonServer"]
+    },
+    {
+      "Id": 3,
+      "Nome": "MonitorarSites",
+      "Url": "https://github.com/lucassapucahy/MonitorarSites",
+      "Descricao": "Projeto praticando a base de Go",
+      "Tecnologias": ["GoLang"]
+    },
+    {
+      "Id": 4,
+      "Nome": "GoCadastroProduto",
+      "Url": "https://github.com/lucassapucahy/GoCadastroProduto",
+      "Descricao": "Primeiro CRUD usando Go",
+      "Tecnologias": ["GoLang", "PowerShellScript", "Docker", "HTML", "Bootstrap"]
     }
   ]
 }

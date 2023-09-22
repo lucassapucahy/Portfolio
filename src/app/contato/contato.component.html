@@ -1,44 +1,93 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <label for="txtNome" class="form-label">Nome:</label>
-      <input type="text" class="form-control" id="txtNome" placeholder="Seu Nome">
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div *ngIf="emailEnviado">
+      <p class="text-center  fw-bold fs-3">Email Enviado com sucesso.</p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="txtNome" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="txtNome" [(ngModel)]="contato.Nome" required maxlength="50" name="Nome" placeholder="Seu Nome">
+        <div *ngIf="myForm.controls['Nome']?.invalid && (myForm.controls['Nome'].dirty || myForm.controls['Nome'].touched)">
+          <div *ngIf="myForm.controls['Nome'].hasError('required')">Nome é obrigatorio.</div>
+          <div *ngIf="myForm.controls['Nome'].hasError('maxlength')">Nome não pode exceder 50 characters.</div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col">
+        <label for="txtEmail" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="txtEmail" [(ngModel)]="contato.Email" name="Email" required email placeholder="nome@exemplo.com">
+        <div *ngIf="myForm.controls['Email']?.invalid && (myForm.controls['Email'].dirty || myForm.controls['Email'].touched)">
+          <div *ngIf="myForm.controls['Email'].hasError('required')">Email é obrigatorio.</div>
+          <div *ngIf="myForm.controls['Email'].hasError('email')">Email Invalido.</div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col">
+        <label for="txtEmpresa" class="form-label">Empresa:</label>
+        <input type="text" class="form-control" id="txtEmpresa" [(ngModel)]="contato.Empresa" name="Empresa" maxlength="50" Placeholder="Nome da Empresa">
+        <div *ngIf="myForm.controls['Empresa']?.invalid && (myForm.controls['Empresa'].dirty || myForm.controls['Empresa'].touched)">
+          <div *ngIf="myForm.controls['Empresa'].hasError('maxlength')">Empresa não pode exceder 50 characters.</div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col">
+        <label for="txtCel" class="form-label">Celular:</label>
+        <input type="tel" class="form-control" id="txtCel" [(ngModel)]="contato.Cel" name="Cel" minlength="11" placeholder="(xx)xxxxx-xxxx" required maxlength="14" (input)="formatPhoneNumber($event)">
+        <div *ngIf="myForm.controls['Cel']?.invalid && (myForm.controls['Cel'].dirty || myForm.controls['Cel'].touched)">
+          <div *ngIf="myForm.controls['Cel'].hasError('required')">Celular é obrigatorio.</div>
+          <div *ngIf="myForm.controls['Cel'].hasError('minlength')">Celular deve ter no mínimo 11 caracteres.</div>
+          <div *ngIf="myForm.controls['Cel'].hasError('maxlength')">Celular não pode exceder 11 characters.</div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col">
+        <label for="txtMensagem" class="form-label">Mensagem:</label>
+        <textarea class="form-control" id="txtMensagem" [(ngModel)]="contato.Mensagem" name="Mensagem" required placeholder="Sua Mensagem" rows="3"></textarea>
+        <div *ngIf="myForm.controls['Mensagem']?.invalid && (myForm.controls['Mensagem'].dirty || myForm.controls['Mensagem'].touched)">
+          <div *ngIf="myForm.controls['Mensagem'].hasError('required')">Mensagem is required.</div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-md-2">
+        <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" [disabled]="!myForm.valid" >Enviar</button>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <label for="txtEmail" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="txtEmail" placeholder="nome@exemplo.com">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <label for="txtEmpresa" class="form-label">Empresa:</label>
-      <input type="text" class="form-control" id="txtEmpresa" placeholder="Nome da Empresa">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <label for="txtCel" class="form-label">Email:</label>
-      <input type="tel" class="form-control" id="txtCel" placeholder="(xx)xxxxx-xxxx">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <label for="txtMensagem" class="form-label">Mensagem:</label>
-      <textarea class="form-control" id="txtMensagem" placeholder="Sua Mensagem" rows="3"></textarea>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="row">
-    <div class="col-md-2">
-      <button class="btn btn-lg btn-primary">Enviar</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Validação</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Envio de email nao implementado ainda.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button class="btn btn-primary" type="submit" data-bs-dismiss="modal" >Enviar</button>
+      </div>
     </div>
   </div>
 </div>
+</form>
+
+
+
