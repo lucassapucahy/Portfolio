@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <label for="txtNome" class="form-label">Nome:</label>
+        <label for="txtNome" class="form-label">Nome*:</label>
         <input type="text" class="form-control" id="txtNome" [(ngModel)]="contato.Nome" required maxlength="50" name="Nome" placeholder="Seu Nome">
         <div *ngIf="myForm.controls['Nome']?.invalid && (myForm.controls['Nome'].dirty || myForm.controls['Nome'].touched)">
           <div *ngIf="myForm.controls['Nome'].hasError('required')">Nome é obrigatorio.</div>
@@ -17,7 +17,7 @@
     <br>
     <div class="row">
       <div class="col">
-        <label for="txtEmail" class="form-label">Email:</label>
+        <label for="txtEmail" class="form-label">Email*:</label>
         <input type="email" class="form-control" id="txtEmail" [(ngModel)]="contato.Email" name="Email" required email placeholder="nome@exemplo.com">
         <div *ngIf="myForm.controls['Email']?.invalid && (myForm.controls['Email'].dirty || myForm.controls['Email'].touched)">
           <div *ngIf="myForm.controls['Email'].hasError('required')">Email é obrigatorio.</div>
@@ -40,7 +40,7 @@
 
     <div class="row">
       <div class="col">
-        <label for="txtCel" class="form-label">Celular:</label>
+        <label for="txtCel" class="form-label">Celular*:</label>
         <input type="tel" class="form-control" id="txtCel" [(ngModel)]="contato.Cel" name="Cel" minlength="11" placeholder="(xx)xxxxx-xxxx" required maxlength="14" (input)="formatPhoneNumber($event)">
         <div *ngIf="myForm.controls['Cel']?.invalid && (myForm.controls['Cel'].dirty || myForm.controls['Cel'].touched)">
           <div *ngIf="myForm.controls['Cel'].hasError('required')">Celular é obrigatorio.</div>
@@ -53,10 +53,10 @@
 
     <div class="row">
       <div class="col">
-        <label for="txtMensagem" class="form-label">Mensagem:</label>
+        <label for="txtMensagem" class="form-label">Mensagem*:</label>
         <textarea class="form-control" id="txtMensagem" [(ngModel)]="contato.Mensagem" name="Mensagem" required placeholder="Sua Mensagem" rows="3"></textarea>
         <div *ngIf="myForm.controls['Mensagem']?.invalid && (myForm.controls['Mensagem'].dirty || myForm.controls['Mensagem'].touched)">
-          <div *ngIf="myForm.controls['Mensagem'].hasError('required')">Mensagem is required.</div>
+          <div *ngIf="myForm.controls['Mensagem'].hasError('required')">Mensagem é obrigatoria.</div>
         </div>
       </div>
     </div>
